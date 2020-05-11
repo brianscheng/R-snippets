@@ -1,6 +1,7 @@
 #binomial data can be organized as 'binomial counts' of 'x trials' or as bernoulli counts (1 and 0)
 #if a binomial glmm exhibits overdispersion one solution is to model the data as bernoulli counts
 #this code expands your dataframe from binomial counts to bernoulli counts
+#code adapted from Warton and Hui 2011 Ecology, Ecological Archives E092-001-S1
 
 #first, construct dataframe with structure of binomial counts
 n = 10                          #number of trials 
@@ -10,7 +11,7 @@ data<-data.frame(n, alive, dead)#create dataframe
 data
 
 dataset<-data #first clone your dataframe and call it 'dataset' so you don't have to rename stuff
-#my columns were originally called "Alive" and "Dead", change these column names so you they are standardized at "success" and "failure"
+#my columns were originally called "alive" and "dead", change these column names so they are standardized at "success" and "failure"
 names(dataset)[names(dataset)=="alive"]<-c("success") #rename the dataframe columns
 names(dataset)[names(dataset)=="dead"]<-c("failure")
 dataset.expanded = dataset[0,]
