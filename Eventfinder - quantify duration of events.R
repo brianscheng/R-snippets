@@ -1,6 +1,6 @@
 #Eventfinder - quantify duration and number of events
 
-#create reproducible example
+#create reproducible data
 t    = seq(0,20,0.1)             #create time variable
 y    = sin(t)                    #create sine wave variable
 data = data.frame(t,y)           #stitch objects into dataframe
