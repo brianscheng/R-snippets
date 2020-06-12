@@ -1,30 +1,14 @@
 #code for applying transformation by category
+library(dplyr)
 
 #create reproducible data first
+category = factor(rep(c("blue","red","green"),each=10))
+number   = rep(1:10, times = 3, each = 1)
+data     = data.frame(category, number)
 
+#dplyr solution
+data$new_number <-data %>%
+  mutate(new_number = case_when(category == "blue" ~ number*2,
+                                category == "red"  ~ number*3,
+                                category == "green"~ number*4))
 
-
-for(i in 1:length(error_type)){
-  type = error_type[i]
-  entries = which(pairs$thermal_limit_error_type == type)
-  
-  #Transformation of standard errors and 95% confidence intervals were done following the guidelines of Cochrane Handbook for Systematic Reviews of Interventions
-  if(type == "std_err"){
-    pairs$thermal_limit_sd1[entries] = pairs$thermal_limit_error_1[entries] * sqrt(pairs$n1[entries])
-    pairs$thermal_limit_sd2[entries] = pairs$thermal_limit_error_2[entries] * sqrt(pairs$n2[entries])
-    
-  }
-  
-  if(type == "CI"){
-    pairs$thermal_limit_sd1[entries] = ((pairs$thermal_limit_error_1[entries] * 2) / 3.92) * sqrt(pairs$n1[entries])
-    pairs$thermal_limit_sd2[entries] = ((pairs$thermal_limit_error_2[entries] * 2) / 3.92) * sqrt(pairs$n2[entries])
-    
-  }
-  
-  if(type == "std_dev"){
-    pairs$thermal_limit_sd1[entries] = pairs$thermal_limit_error_1[entries]
-    pairs$thermal_limit_sd2[entries] = pairs$thermal_limit_error_2[entries]
-    
-  }
-  
-}
