@@ -1,4 +1,5 @@
 #Eventfinder - quantify duration and number of events
+#shout out to Dale Trockel for developing this solution
 
 #create reproducible data
 t    = seq(0,20,0.1)             #create time variable
