@@ -9,11 +9,12 @@ plot(data=data, y~t, type = "l") #plot to build intuition
 abline(h=-0.5)                   #imagine we want to know how many events are below this 
                                  #threshold and for how long, here there are 3
 
-#solution
+#parameters (things to change depending on desired outcome)
 threshold = -0.5                            #set threshold value
 index<-which(data$y <= threshold)           #index of all values less than threshold
-l <- length(index)                          #calculate length
 
+#general solution
+l <- length(index)                          #calculate length
 index2<-which((index[2:l]- index[1:l-1])>1) #holds the end time of each event
 l2 <- length(index2)                        #calculate length of end points
 
@@ -27,5 +28,6 @@ for (i in 2:l2)
 } 
 eventDurations[l2+1] <- data$t[index[index2[l2]]] - data$t[index[index2[l2-1]+1]] #this is the last event (because it can't find all of them)
 
+#results
 eventDurations         #prints vector of event lengths, here they are length = 2
 length(eventDurations) #number of events
