@@ -1,17 +1,26 @@
-#Eventfinder - quantify duration of events
+#Eventfinder - quantify duration and number of events
 
-salinity$new.time<-mapply(julian, x=as.POSIXct(salinity$rdate),origin=as.POSIXct("1900-01-01",tz="GMT"))
+#create reproducible example
+t    = seq(0,20,0.1)             #create time variable
+y    = sin(t)                    #create sine wave variable
+data = data.frame(t,y)           #stitch objects into dataframe
+plot(data=data, y~t, type = "l") #plot to build intuition
 
-threshold<-5
 
-index <- which(salinity2$Sal<=threshold) #index of all salinity values less than threshold.
-l <- length(index) 
-index2<-which((index[2:l]- index[1:l-1])>1) #holds the end new.time of each event
-l2 <- length(index2)
+#solution
+threshold = -0.5                            #set threshold value
+index<-which(data$y <= threshold)           #index of all values less than threshold
+l <- length(index)                          #calculate length
 
-eventDurations.5psu<- salinity$new.time[index[index2[1]]] - salinity$new.time[index[1]] #index has indices of elements from orginal dataframe, index2 has indices of the elements of index (which are the endpoints of each event)
+index2<-which((index[2:l]- index[1:l-1])>1) #holds the end time of each event
+l2 <- length(index2)                        #calculate length of end points
+
+eventDurations<- data$t[index[index2[1]]] - data$t[index[1]] 
+#index has indices of elements from orginal dataframe
+#index2 has indices of the elements of index (which are the endpoints of each event)
+
 for (i in 2:l2)
 {
-  eventDurations.5psu[i]<- salinity$new.time[index[index2[i]]] - salinity$new.time[index[index2[i-1]+1]] #this has the length of new.time for each event
+  eventDurations[i]<- data$t[index[index2[i]]] - data$t[index[index2[i-1]+1]] #this has the length of time for each event
 } 
-eventDurations.5psu[l2+1] <- salinity$new.time[index[index2[l2]]] - salinity$new.time[index[index2[l2-1]+1]] #this is the last event (because it can't find all of them)
+eventDurations[l2+1] <- data$t[index[index2[l2]]] - data$t[index[index2[l2-1]+1]] #this is the last event (because it can't find all of them)
