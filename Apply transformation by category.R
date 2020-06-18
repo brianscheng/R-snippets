@@ -7,7 +7,7 @@ number   = rep(1:10, times = 3, each = 1)
 data     = data.frame(category, number)
 
 #dplyr solution
-data$new_number <-data %>%
+data <-data %>%
   mutate(new_number = case_when(category == "blue" ~ number*2,
                                 category == "red"  ~ number*3,
                                 category == "green"~ number*4))
