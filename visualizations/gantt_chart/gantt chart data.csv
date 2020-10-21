@@ -1,0 +1,25 @@
+Item,Activity,Project element,Start,End
+1,Project planning,Coordination,2021.01.01,2021.03.01
+2,Project planning,Coordination,2021.11.01,2021.12.31
+3,Project planning,Coordination,2022.11.01,2022.12.31
+4,Project planning,Coordination,2023.11.01,2023.12.31
+5,"Field work (collections, field data)",Field work,2021.04.01,2021.06.01
+6,"Field work (collections, field data)",Field work,2022.04.01,2022.05.01
+7,"Field work (collections, field data)",Field work,2023.04.01,2023.05.01
+8,Spawning oyster drills,Laboratory,2021.05.01,2021.07.01
+9,Spawning oyster drills,Laboratory,2022.05.01,2022.07.01
+10,Thermal performance trials,Laboratory,2021.07.01,2021.10.01
+11,Thermal performance trials,Laboratory,2022.07.01,2022.10.01
+12,Phenotypic data processing and workup,Analyses,2021.10.01,2021.11.15
+13,RNA extraction and library preparation,Molecular work,2021.10.01,2021.12.31
+14,Data archiving,Analyses,2021.11.15,2021.12.31
+15,Sequencing,Molecular work,2022.01.01,2022.02.01
+16,Bioinformatics,Analyses,2022.02.01,2022.05.01
+17,Spawning oyster drills,Laboratory,2022.05.01,2022.07.01
+18,Population genetics,Publication preparation,2022.05.01,2022.09.01
+19,Phenotypic data processing and workup,Analyses,2022.10.01,2022.11.15
+20,Data archiving,Analyses,2022.11.15,2022.12.31
+21,Mechanisms of CnGV,Publication preparation,2023.01.01,2023.05.01
+22,Sublethal and lethal integration,Publication preparation,2023.07.01,2023.11.01
+23,Swim instruction / ocean science boot camp,Broader impacts,2021.08.01,2021.08.22
+24,Swim instruction / ocean science boot camp,Broader impacts,2022.08.01,2022.08.22
